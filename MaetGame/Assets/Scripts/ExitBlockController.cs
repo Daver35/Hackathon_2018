@@ -5,6 +5,8 @@ using UnityEngine;
 public class ExitBlockController : MonoBehaviour {
 
 	private Direction exitDirection;
+	public AudioClip hitSound1;
+	public AudioClip hitSound2;
 
 	// Use this for initialization
 	void Start () {
@@ -34,9 +36,11 @@ public class ExitBlockController : MonoBehaviour {
 				Debug.Log ("Exit level");
 				player.StopMovement();
 				player.SetReady(1f);
+				SoundManager.instance.PlaySingle (hitSound2);
 			}else{
 				player.StopMovement();
 				player.SetReady(1f);
+				SoundManager.instance.PlaySingle (hitSound1);
 			}
 
 		}

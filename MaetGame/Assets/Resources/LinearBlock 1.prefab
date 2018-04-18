@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
+  hitSound1: {fileID: 8300000, guid: 940b0766cdf4d42a89a1fa91c1cd0fcf, type: 3}
+  hitSound2: {fileID: 8300000, guid: 0de02b97b2c084ef2b71ed1c6f53b5ea, type: 3}
 --- !u!114 &114962463064107640
 MonoBehaviour:
   m_ObjectHideFlags: 1

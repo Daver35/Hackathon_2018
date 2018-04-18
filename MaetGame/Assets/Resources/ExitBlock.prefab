@@ -78,6 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1363f25ed2864eea9e2252b80d18fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound1: {fileID: 8300000, guid: 940b0766cdf4d42a89a1fa91c1cd0fcf, type: 3}
+  hitSound2: {fileID: 8300000, guid: d7437db89c0be464fab280a3dc190424, type: 3}
 --- !u!212 &212612318046760128
 SpriteRenderer:
   m_ObjectHideFlags: 1
