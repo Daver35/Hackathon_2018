@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
 
 	public float levelStartDelay = 2f;
-
+	public float currentLvlTime;
 
 	private Text levelText;
 	private GameObject levelImage;
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
 
 		levelImage.SetActive (true);
 		Invoke ("HideLevelImage", levelStartDelay);
-
+		currentLvlTime = 0;
 	}
 
 	void HideLevelImage()
@@ -72,4 +72,7 @@ public class GameManager : MonoBehaviour {
 	void finishLevel(){
 		SceneManager.LoadScene (level++);
 	}
+
+
+
 }
