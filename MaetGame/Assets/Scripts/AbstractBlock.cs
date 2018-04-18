@@ -19,6 +19,7 @@ public class AbstractBlock : MonoBehaviour {
 	void OnTriggerEnter2d(Collision2D collision) {
 		if (collision.gameObject.CompareTag ("Player")) {
 			lightSys.Light ();
+			collision.rigidbody.velocity = new Vector2 (0, 0);
 		}
 	}
 
