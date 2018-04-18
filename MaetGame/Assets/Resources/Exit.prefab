@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114737147130209216}
   - component: {fileID: 61313711400392664}
   m_Layer: 0
-  m_Name: ExitBlock
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564831237111520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.49, y: 2.45, z: 0}
+  m_LocalPosition: {x: 3.9104476, y: -3.7686243, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,7 +65,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.25, y: 2.25}
   m_EdgeRadius: 0
 --- !u!114 &114737147130209216
 MonoBehaviour:
