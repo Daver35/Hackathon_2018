@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AbstractLightScript : MonoBehaviour {
 
-	private GameObject lightPoint;
+	public GameObject lightPoint;
 
 	// Use this for initialization
 	void Start () {
-		lightPoint = GetComponent<GameObject> ();
+		//lightPoint = GetComponent<GameObject> ();
 	}
 	
 	// Update is called once per frame

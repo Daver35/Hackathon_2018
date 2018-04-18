@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 108474300895172334}
   m_Layer: 0
   m_Name: Point light
-  m_TagString: Untagged
+  m_TagString: PointLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906740912534730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.66, y: 0.63, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4255035012455804}
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c7ff5f43d79354982e1ab02066de6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightPoint: {fileID: 1955092244310328}
 --- !u!212 &212048988243910996
 SpriteRenderer:
   m_ObjectHideFlags: 1
