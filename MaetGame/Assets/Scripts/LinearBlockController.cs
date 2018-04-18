@@ -21,7 +21,8 @@ public class LinearBlockController : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter2d(Collision2D collision) {
+	void OnTriggerEnter2D(Collider2D collision) {
+		Debug.Log ("hit player");
 		if (collision.gameObject.CompareTag ("Player")) {
 			lightSys.Light ();
 			PlayerController player = collision.gameObject.GetComponent<PlayerController>();
@@ -37,7 +38,7 @@ public class LinearBlockController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit2d(Collision2D collision) {
+	void OnTriggerExit2D(Collider2D collision) {
 		if (collision.gameObject.CompareTag ("Player")) {
 			lightSys.UnLight();
 		}

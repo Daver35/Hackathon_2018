@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour {
 			
 			float vert = Input.GetAxis ("Vertical");
 			float hori = Input.GetAxis ("Horizontal");
-			Debug.Log("Ready :)");
 			if (vert != 0 || hori != 0) {
 				if (vert != 0) {
 					if (vert > 0) {
