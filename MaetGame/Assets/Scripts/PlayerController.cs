@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour {
 			rigid.velocity = new Vector2 (0, velocity);
 			animator.SetTrigger ("playerVertical");
 			transform.localScale = new Vector3 (1f, 1f, 1f);
+			isReady = false;
+			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 		}
 	}
 	public void MoveDown(){
@@ -75,6 +77,8 @@ public class PlayerController : MonoBehaviour {
 			rigid.velocity = new Vector2 (0, -velocity);
 			animator.SetTrigger ("playerVertical");
 			transform.localScale = new Vector3 (1f, -1f, 1f);
+			isReady = false;
+			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 		}
 	}
 	public void MoveRight(){
@@ -82,6 +86,8 @@ public class PlayerController : MonoBehaviour {
 			rigid.velocity = new Vector2 (velocity, 0);
 			animator.SetTrigger ("playerHoritzontal");
 			transform.localScale = new Vector3 (1f, 1f, 1f);
+			isReady = false;
+			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 		}
 	}
 	public void MoveLeft(){
@@ -89,10 +95,13 @@ public class PlayerController : MonoBehaviour {
 			rigid.velocity = new Vector2 (-velocity, 0);
 			animator.SetTrigger ("playerHoritzontal");
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
+			isReady = false;
+			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 		}
 	}
 
 	public void StopMovement(){
+		BlockDirection (_direction);
 		rigid.velocity = new Vector2 (0, 0);
 		_direction = Direction.Center;
 		animator.SetTrigger ("playerHit");
@@ -134,8 +143,5 @@ public class PlayerController : MonoBehaviour {
 		}else if(direction == Direction.Left){
 			MoveLeft ();
 		}
-		isReady = false;
-		blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
-
 	}
 }
