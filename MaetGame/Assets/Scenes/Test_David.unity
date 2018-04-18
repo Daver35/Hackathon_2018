@@ -779,11 +779,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0de02b97b2c084ef2b71ed1c6f53b5ea, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -860,7 +860,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -954,6 +954,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0bb6014fdd24fd3b208578742b042b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  efxSource: {fileID: 1663436318}
+  musicSource: {fileID: 1663436317}
+  lowPitchRange: 0.95
+  highPitchRange: 1.05
 --- !u!1001 &1678815722
 Prefab:
   m_ObjectHideFlags: 0

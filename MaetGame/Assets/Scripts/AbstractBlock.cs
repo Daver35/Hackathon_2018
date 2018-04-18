@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AbstractBlock : MonoBehaviour {
 
+	public AudioClip hitSound;
 	private AbstractLightScript lightSys;
 
 	// Use this for initialization
@@ -23,6 +24,7 @@ public class AbstractBlock : MonoBehaviour {
 			PlayerController player = collider.gameObject.GetComponent<PlayerController>();
 			player.StopMovement (); //velocity = new Vector2 (0, 0);
 			player.SetReady(1f);
+			SoundManager.instance.PlaySingle (hitSound);
 		}
 	}
 
