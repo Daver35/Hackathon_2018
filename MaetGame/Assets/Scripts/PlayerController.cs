@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	public Vector3 scale;// = new Vector3 (0.5,0.5,1);
 	public float velocity;
+	public float offset;
 	private Direction _direction;
 	public Direction direction{
 		get{ return this._direction;}
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 		if (!blockedUp) {
 			rigid.velocity = new Vector2 (0, velocity);
 			animator.SetTrigger ("playerVertical");
-			transform.localScale = new Vector3 (1f, 1f, 1f);
+			transform.localScale = new Vector3 (scale.x, scale.y, scale.z);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 			_direction = Direction.Up;
@@ -77,7 +79,7 @@ public class PlayerController : MonoBehaviour {
 		if (!blockedDown) {
 			rigid.velocity = new Vector2 (0, -velocity);
 			animator.SetTrigger ("playerVertical");
-			transform.localScale = new Vector3 (1f, -1f, 1f);
+			transform.localScale = new Vector3 (scale.x, -scale.y, scale.z);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 			_direction = Direction.Down;
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour {
 		if (!blockedRight) {
 			rigid.velocity = new Vector2 (velocity, 0);
 			animator.SetTrigger ("playerHoritzontal");
-			transform.localScale = new Vector3 (1f, 1f, 1f);
+			transform.localScale = new Vector3 (scale.x, scale.y, scale.z);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 			_direction = Direction.Right;
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour {
 		if (!blockedLeft) {
 			rigid.velocity = new Vector2 (-velocity, 0);
 			animator.SetTrigger ("playerHoritzontal");
-			transform.localScale = new Vector3 (-1f, 1f, 1f);
+			transform.localScale = new Vector3 (-scale.x, scale.y, scale.z);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 			_direction = Direction.Left;
@@ -117,7 +119,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void StopMovement(){
-		desplaceOffset (_direction, -0.25f);
+		desplaceOffset (_direction, -offset);
 		BlockDirection (_direction);
 		rigid.velocity = new Vector2 (0, 0);
 		_direction = Direction.Center;
