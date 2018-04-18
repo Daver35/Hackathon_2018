@@ -6,6 +6,7 @@ public class ClockBlockController : MonoBehaviour {
 
 	private AbstractLightScript lightSys;
 	public Orientation orientation;
+	public AudioClip hitSound;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,7 @@ public class ClockBlockController : MonoBehaviour {
 			player.BlockDirection(DirectionF.rotateDirection(player.direction, orientation));	
 			player.StopMovement ();
 			player.SetReady (1f);
-			
+			SoundManager.instance.PlaySingle (hitSound);
 		}
 	}
 

@@ -6,6 +6,8 @@ public class LinearBlockController : MonoBehaviour {
 	
 	private AbstractLightScript lightSys;
 	public Axis direction;
+	public AudioClip hitSound1;
+	public AudioClip hitSound2;
 
 	public enum Axis{
 		Horitzontal,
@@ -27,12 +29,16 @@ public class LinearBlockController : MonoBehaviour {
 			lightSys.Light ();
 			PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 			Direction dir = player.GetDirection();
-			if(direction == Axis.Horitzontal && (dir == Direction.Up || dir == Direction.Down)){
-			    player.StopMovement();
-			    player.SetReady(1f);
-			}else if(direction == Axis.Vertical && (dir == Direction.Right || dir == Direction.Left)){
-			    player.StopMovement();
-			    player.SetReady(1f);
+			if (direction == Axis.Horitzontal && (dir == Direction.Up || dir == Direction.Down)) {
+				player.StopMovement ();
+				player.SetReady (1f);
+				SoundManager.instance.PlaySingle (hitSound1);
+			} else if (direction == Axis.Vertical && (dir == Direction.Right || dir == Direction.Left)) {
+				player.StopMovement ();
+				player.SetReady (1f);
+				SoundManager.instance.PlaySingle (hitSound1);
+			} else {
+				SoundManager.instance.PlaySingle (hitSound2);
 			}
 			
 		}
