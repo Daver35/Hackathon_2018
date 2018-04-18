@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AbstractLightScript : MonoBehaviour {
 
+	private GameObject lightPoint;
+
 	// Use this for initialization
 	void Start () {
-		
+		lightPoint = GetComponent<GameObject> ();
 	}
 	
 	// Update is called once per frame
@@ -15,9 +17,13 @@ public class AbstractLightScript : MonoBehaviour {
 	}
 
 	//Turn on the lights
-	public void Light(){}
+	public void Light(){
+		lightPoint.SetActive (true);
+	}
 
 	// Turn off the lights
-	public void UnLight(){}
+	public void UnLight(){
+		lightPoint.SetActive (false);
+	}
 
 }
