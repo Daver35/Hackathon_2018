@@ -5,32 +5,27 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float velocity;
-	private Direction direction;
+	private Direction _direction;
+	public Direction direction{
+		get{ return this._direction;}
+	}
 	private bool isReady;
 	private Rigidbody2D rigid;
 	private float delay;
-	private bool BlockedUp, BlockedDown, BlockedLeft, BlockedRight;
+	private bool blockedUp, blockedDown, blockedLeft, blockedRight;
 	private Animator animator;
-	public enum Direction
-	{
-		up,
-		down,
-		left,
-		right,
-		center
-	};
 
 	//direction getter
 	public Direction GetDirection() {
-		return direction;
+		return _direction;
 	}
 	// Use this for initialization
 	void Start () {
-		BlockedUp = false; BlockedDown = false; BlockedLeft = false; BlockedRight = false;
+		blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 		animator = GetComponent<Animator> ();
 		isReady = true;
 		rigid = GetComponent<Rigidbody2D> ();
-		direction = 0;
+		_direction = 0;
 		delay = 0;
 	}
 	
@@ -42,16 +37,20 @@ public class PlayerController : MonoBehaviour {
 			float hori = Input.GetAxis ("Horizontal");
 			Debug.Log("Ready :)");
 			if (vert != 0 || hori != 0) {
-				Vector2 vectorDirection = new Vector2(0,0);
 				if (vert != 0) {
-					vectorDirection = new Vector2 (0, vert);
-					isReady = false;
-				} else if (hori != 0) {
-					vectorDirection = new Vector2 (hori, 0);
-					isReady = false;
+					if (vert > 0) {
+						_direction = Direction.Up;
+					}else{
+						_direction = Direction.Down;
+					}
+				} else{
+					if (hori > 0) {
+						_direction = Direction.Right;
+					} else {
+						_direction = Direction.Left;
+					}
 				}
-				direction = directionFromVector (vectorDirection);
-				Move (direction);
+				Move (_direction);
 			}
 		} else if(delay > 0 ){
 			delay -= Time.deltaTime;
@@ -66,28 +65,28 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void MoveUp(){
-		if (!BlockedUp) {
+		if (!blockedUp) {
 			rigid.velocity = new Vector2 (0, velocity);
 			animator.SetTrigger ("playerVertical");
 			transform.localScale = new Vector3 (1f, 1f, 1f);
 		}
 	}
 	public void MoveDown(){
-		if (!BlockedDown) {
+		if (!blockedDown) {
 			rigid.velocity = new Vector2 (0, -velocity);
 			animator.SetTrigger ("playerVertical");
 			transform.localScale = new Vector3 (1f, -1f, 1f);
 		}
 	}
 	public void MoveRight(){
-		if (!BlockedRight) {
+		if (!blockedRight) {
 			rigid.velocity = new Vector2 (velocity, 0);
 			animator.SetTrigger ("playerHoritzontal");
 			transform.localScale = new Vector3 (1f, 1f, 1f);
 		}
 	}
 	public void MoveLeft(){
-		if (!BlockedLeft) {
+		if (!blockedLeft) {
 			rigid.velocity = new Vector2 (-velocity, 0);
 			animator.SetTrigger ("playerHoritzontal");
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
@@ -96,45 +95,48 @@ public class PlayerController : MonoBehaviour {
 
 	public void StopMovement(){
 		rigid.velocity = new Vector2 (0, 0);
-		direction = Direction.center;
+		_direction = Direction.Center;
 		animator.SetTrigger ("playerHit");
 	}
 
 	public Direction directionFromVector(Vector2 vector){
 		if (vector.x > 0) {
-			return Direction.right;
+			return Direction.Right;
 		} else if (vector.x < 0) {
-			return Direction.left;
+			return Direction.Left;
 		} else if (vector.y > 0) {
-			return Direction.up;
+			return Direction.Up;
 		} else if (vector.y < 0) {
-			return Direction.down;
+			return Direction.Down;
 		} else {
-			return Direction.center;
+			return Direction.Center;
 		}
 	}
 
 	public void BlockDirection(Direction direction){
-		if (direction == Direction.up){
-			
-		}else if(direction == Direction.down){
-			
-		}else if(direction == Direction.right){
-
-		}else if(direction == Direction.left){
-
+		if (direction == Direction.Up){
+			blockedUp = true;
+		}else if(direction == Direction.Down){
+			blockedDown = true;
+		}else if(direction == Direction.Right){
+			blockedRight = true;
+		}else if(direction == Direction.Left){
+			blockedLeft = true;
 		}
 	}
 
 	public void Move(Direction direction){
-		if (direction == Direction.up){
+		if (direction == Direction.Up){
 			MoveUp ();
-		}else if(direction == Direction.down){
+		}else if(direction == Direction.Down){
 			MoveDown();
-		}else if(direction == Direction.right){
+		}else if(direction == Direction.Right){
 			MoveRight ();
-		}else if(direction == Direction.left){
+		}else if(direction == Direction.Left){
 			MoveLeft ();
 		}
+		isReady = false;
+		blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
+
 	}
 }

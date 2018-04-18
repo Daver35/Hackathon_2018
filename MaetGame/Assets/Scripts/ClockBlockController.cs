@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LinearBlockController : MonoBehaviour {
-	/*
+public class ClockBlockController : MonoBehaviour {
+
 	private AbstractLightScript lightSys;
-	public int direction;
+	public Orientation orientation;
 
 	// Use this for initialization
 	void Start () {
@@ -21,14 +21,7 @@ public class LinearBlockController : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Player")) {
 			lightSys.Light ();
 			PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-			int dir = player.GetDirection();
-			if(direction == 0 && (dir == 1 || dir == -1)){
-			    player.stopMovement();
-			    player.ready(0.3f);
-			}else if(direction == 1 && (dir == 2 || dir == -2)){
-			    player.stopMovement();
-			    player.ready(0.3f);
-			}
+			player.Move (DirectionF.rotateDirection(player.direction, orientation));			
 			
 		}
 	}
@@ -37,5 +30,5 @@ public class LinearBlockController : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Player")) {
 			lightSys.UnLight ();
 		}
-	}*/
+	}
 }
