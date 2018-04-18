@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7949957051f0942448acd25e8b6e7cbe
-timeCreated: 1524038817
+guid: 3ce038eea36034ecdb41edeba1a7ec21
+timeCreated: 1524042502
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,12 @@ TextureImporter:
     21300020: Blocks_10
     21300022: Blocks_11
     21300024: Blocks_12
+    21300026: Blocks_13
+    21300028: Blocks_14
+    21300030: Blocks_15
+    21300032: Blocks_16
+    21300034: Blocks_17
+    21300036: Blocks_18
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -117,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 526
+        y: 622
         width: 72
         height: 72
       alignment: 0
@@ -131,7 +137,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 526
+        y: 622
         width: 72
         height: 72
       alignment: 0
@@ -145,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 526
+        y: 622
         width: 72
         height: 72
       alignment: 0
@@ -159,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 452
+        y: 548
         width: 72
         height: 72
       alignment: 0
@@ -173,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 452
+        y: 548
         width: 72
         height: 72
       alignment: 0
@@ -187,7 +193,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 378
+        y: 474
         width: 72
         height: 72
       alignment: 0
@@ -201,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 378
+        y: 474
         width: 72
         height: 72
       alignment: 0
@@ -215,7 +221,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 304
+        y: 400
         width: 72
         height: 72
       alignment: 0
@@ -229,7 +235,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 304
+        y: 400
         width: 72
         height: 72
       alignment: 0
@@ -243,7 +249,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 230
+        y: 326
         width: 72
         height: 72
       alignment: 0
@@ -257,7 +263,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 230
+        y: 326
         width: 72
         height: 72
       alignment: 0
@@ -271,7 +277,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 156
+        y: 252
         width: 72
         height: 72
       alignment: 0
@@ -285,7 +291,91 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 156
+        y: 252
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blocks_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 178
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blocks_14
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 178
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blocks_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 104
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blocks_16
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 104
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blocks_17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 29
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Blocks_18
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 29
         width: 72
         height: 72
       alignment: 0
