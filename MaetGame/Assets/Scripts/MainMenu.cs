@@ -17,8 +17,8 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	//Go to 1st level: SceneMaanager.LoadScene(newGameScene);
-	public void Play(string newGameScene){
-		SceneManager.LoadScene (newGameScene);
+	public void Play(){
+		SceneManager.LoadScene ("Level1");
 	}
 
 	//Exit game
