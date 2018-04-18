@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -63,18 +64,12 @@ public class GameManager : MonoBehaviour {
 		doingSetup = false;
 	}
 
-
-
-
-
-
-
-
-
-
-
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void finishLevel(){
+		SceneManager.LoadScene (level++);
 	}
 }

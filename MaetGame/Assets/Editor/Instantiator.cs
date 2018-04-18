@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEditor;
 
 public class Instantiator {
 
-	static GameObject make(float x, float y, string type)
+	static void make(float x, float y, string type)
 	{
-		Object.Instantiate(Resources.Load(type), new Vector2(x,y), Quaternion.identity);
+		GameObject go = PrefabUtility.InstantiatePrefab(Resources.Load(type)) as GameObject;
+		go.transform.position = new Vector2 (x, y);
 	}	
 
 	static void build_level(string path)
 	{
 		LevelObjects lvlo = JsonUtility.FromJson<LevelObjects> (File.ReadAllText (path));
 
-		foreach(Box b : lvlo.Object){
+		foreach(Box b in lvlo.Object){
 			make(b.box_bounds.x, b.box_bounds.y, b.type);
 		}
 
+	}
+
+	[ContextMenu ("build_level")]
+	static void action_level(){
+		build_level (AssetDatabase.GetAssetPath (Selection.activeObject));
 	}
 
 	[System.Serializable]
