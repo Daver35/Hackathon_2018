@@ -16,15 +16,18 @@ public class AbstractBlock : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter2d(Collision2D collision) {
-		if (collision.gameObject.CompareTag ("Player")) {
+	void OnTriggerEnter2D(Collider2D collider) {
+		Debug.Log ("collision detected " + collider.CompareTag ("Player"));
+		if (collider.CompareTag ("Player")) {
 			lightSys.Light ();
-			collision.rigidbody.velocity = new Vector2 (0, 0);
+			PlayerController player = collider.gameObject.GetComponent<PlayerController>();
+			player.StopMovement (); //velocity = new Vector2 (0, 0);
+			player.SetReady(0.3f);
 		}
 	}
 
-	void OnTriggerExit2d(Collision2D collision) {
-		if (collision.gameObject.CompareTag ("Player")) {
+	void OnTriggerExit2D(Collider2D collider) {
+		if (collider.CompareTag ("Player")) {
 			lightSys.UnLight ();
 		}
 	}
