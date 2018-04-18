@@ -22,7 +22,7 @@ public class AbstractBlock : MonoBehaviour {
 			lightSys.Light ();
 			PlayerController player = collider.gameObject.GetComponent<PlayerController>();
 			player.StopMovement (); //velocity = new Vector2 (0, 0);
-			player.SetReady(0.3f);
+			player.SetReady(1f);
 		}
 	}
 
