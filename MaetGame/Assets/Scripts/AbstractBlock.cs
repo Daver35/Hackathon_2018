@@ -13,7 +13,7 @@ public class AbstractBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
@@ -26,9 +26,9 @@ public class AbstractBlock : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D collider) {
+	/*void OnTriggerExit2D(Collider2D collider) {
 		if (collider.CompareTag ("Player")) {
 			lightSys.UnLight ();
 		}
-	}
+	}*/
 }

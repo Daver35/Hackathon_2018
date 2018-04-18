@@ -21,14 +21,16 @@ public class ClockBlockController : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("Player")) {
 			lightSys.Light ();
 			PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-			player.Move (DirectionF.rotateDirection(player.direction, orientation));			
+			player.BlockDirection(DirectionF.rotateDirection(player.direction, orientation));	
+			player.StopMovement ();
+			player.SetReady (1f);
 			
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D collision) {
+	/*void OnTriggerExit2D(Collider2D collision) {
 		if (collision.gameObject.CompareTag ("Player")) {
 			lightSys.UnLight ();
 		}
-	}
+	}*/
 }

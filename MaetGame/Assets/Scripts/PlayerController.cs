@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (1f, 1f, 1f);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
+			_direction = Direction.Up;
 		}
 	}
 	public void MoveDown(){
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (1f, -1f, 1f);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
+			_direction = Direction.Down;
 		}
 	}
 	public void MoveRight(){
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (1f, 1f, 1f);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
+			_direction = Direction.Right;
 		}
 	}
 	public void MoveLeft(){
@@ -97,10 +100,24 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
 			isReady = false;
 			blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
+			_direction = Direction.Left;
+		}
+	}
+
+	public void desplaceOffset(Direction dir, float offset){
+		if(dir == Direction.Up ){
+			transform.position += new Vector3 (0,offset,0);
+		}else if(dir == Direction.Down){
+			transform.position += new Vector3 (0,-offset,0);
+		}else if(dir == Direction.Right){
+			transform.position += new Vector3 (offset,0,0);
+		}else if(dir == Direction.Left){
+			transform.position += new Vector3 (-offset,0,0);
 		}
 	}
 
 	public void StopMovement(){
+		desplaceOffset (_direction, -0.25f);
 		BlockDirection (_direction);
 		rigid.velocity = new Vector2 (0, 0);
 		_direction = Direction.Center;
