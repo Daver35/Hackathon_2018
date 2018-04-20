@@ -5,6 +5,7 @@ using UnityEngine;
 public class AbstractBlock : MonoBehaviour {
 
 	public AudioClip hitSound;
+	public Sprite unlighted, lighted;
 	private AbstractLightScript lightSys;
 
 	// Use this for initialization
@@ -26,6 +27,13 @@ public class AbstractBlock : MonoBehaviour {
 			player.SetReady(1f);
 			SoundManager.instance.PlaySingle (hitSound);
 		}
+	}
+
+	public void changeSpriteLighted(){
+		this.GetComponent<SpriteRenderer> ().sprite = lighted;
+	}
+	public void changeSpriteUnlighted(){
+		this.GetComponent<SpriteRenderer> ().sprite = unlighted;
 	}
 
 	/*void OnTriggerExit2D(Collider2D collider) {
