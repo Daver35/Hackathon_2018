@@ -7,12 +7,14 @@ public class AbstractLightScript : MonoBehaviour {
 	public GameObject lightPoint;
 	private bool light;
 	private Rigidbody2D player;
+	private InterfaceBlockController spriteChanger;
 
 	// Use this for initialization
 	void Start () {
 		//lightPoint = GetComponent<GameObject> ();
 		player = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
 		light = false;
+		spriteChanger = gameObject.GetComponent<InterfaceBlockController> ();
 	}
 	
 	// Update is called once per frame
@@ -28,12 +30,14 @@ public class AbstractLightScript : MonoBehaviour {
 	public void Light(){
 		lightPoint.SetActive (true);
 		light = true;
+		spriteChanger.changeSpriteLighted();
 	}
 
 	// Turn off the lights
 	public void UnLight(){
 		lightPoint.SetActive (false);
 		light = false;
+		spriteChanger.changeSpriteUnlighted();
 	}
 
 }

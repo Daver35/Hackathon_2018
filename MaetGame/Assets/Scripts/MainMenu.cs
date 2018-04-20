@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+	public string newGameScene;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,7 @@ public class MainMenu : MonoBehaviour {
 
 	//Go to 1st level: SceneMaanager.LoadScene(newGameScene);
 	public void Play(){
-		SceneManager.LoadScene ("Level1");
+		SceneManager.LoadScene (newGameScene);
 	}
 
 	//Exit game

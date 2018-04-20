@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	private float delay;
 	private bool blockedUp, blockedDown, blockedLeft, blockedRight;
 	private Animator animator;
+	private Vector2 touchOrigin = -Vector2.one;
 
 	//direction getter
 	public Direction GetDirection() {
@@ -34,9 +35,30 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isReady) {
-			
+
+		#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
+
 			float vert = Input.GetAxis ("Vertical");
 			float hori = Input.GetAxis ("Horizontal");
+
+		#elif UNITY_ANDROID || UNITY_IOS
+
+			if(Inupt.touchCount > 0){
+				Touch myTouch = Input.touches[0];
+				if(myTouch.TouchPhase == TouchPhase.Began){
+					touchOrigin = myTouch.position;
+			}else if(myTouch.phase = TouchPhase.Ended && touchOrigin.x >= 0){
+				Vector2 touchEnd = myTouch.position;
+				float x = touchEnd.x - touchOrigin.x;
+				float y = touchEnd.y - touchOrigin.y;
+
+				if(Mathf.Abs(x) > Mathf.Abs(y))
+					hori = x > 0 ? 1 : -1;
+				else
+					vert = y > 0 ? 1 : -1;
+			}
+		}
+		#endif
 			if (vert != 0 || hori != 0) {
 				if (vert != 0) {
 					if (vert > 0) {
@@ -53,6 +75,7 @@ public class PlayerController : MonoBehaviour {
 				}
 				Move (_direction);
 			}
+
 		} else if(delay > 0 ){
 			delay -= Time.deltaTime;
 			if(delay <= 0){
@@ -162,5 +185,13 @@ public class PlayerController : MonoBehaviour {
 		}else if(direction == Direction.Left){
 			MoveLeft ();
 		}
+	}
+
+	public void ResetMovement(){
+		rigid.velocity = new Vector2 (0, 0);
+		_direction = Direction.Center;
+		animator.SetTrigger ("playerHit");
+		isReady = true;
+		blockedUp = false; blockedDown = false; blockedLeft = false; blockedRight = false;
 	}
 }

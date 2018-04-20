@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class uiLevel : MonoBehaviour {
+public class UILevel : MonoBehaviour {
 
 	float timer = 0.0f;
 	private Text timerLevel; 
@@ -11,7 +11,6 @@ public class uiLevel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timerLevel = GameObject.Find ("TimerText").GetComponent<Text> ();
-
 	}
 	
 	// Update is called once per frame

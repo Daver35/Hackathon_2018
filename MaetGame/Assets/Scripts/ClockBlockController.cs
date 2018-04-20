@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClockBlockController : MonoBehaviour {
+public class ClockBlockController : MonoBehaviour, InterfaceBlockController {
 
 	private AbstractLightScript lightSys;
 	public Orientation orientation;
 	public AudioClip hitSound;
+	public Sprite unlighted, lighted;
 
 	// Use this for initialization
 	void Start () {
@@ -34,4 +35,11 @@ public class ClockBlockController : MonoBehaviour {
 			lightSys.UnLight ();
 		}
 	}*/
+
+	public void changeSpriteLighted(){
+		this.GetComponent<SpriteRenderer> ().sprite = lighted;
+	}
+	public void changeSpriteUnlighted(){
+		this.GetComponent<SpriteRenderer> ().sprite = unlighted;
+	}
 }
